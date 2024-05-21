@@ -1,3 +1,4 @@
+import CustomThemeProvider from './_components/CustomThemeProvider';
 import { WindowSizeProvider } from './_context/WindowSizeContext';
 import StyledComponentsRegistry from './_lib/registry';
 
@@ -6,7 +7,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html>
       <body>
         <WindowSizeProvider>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <CustomThemeProvider>{children}</CustomThemeProvider>
+          </StyledComponentsRegistry>
         </WindowSizeProvider>
       </body>
     </html>
