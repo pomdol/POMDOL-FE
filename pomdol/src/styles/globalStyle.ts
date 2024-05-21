@@ -13,12 +13,12 @@ export const GlobalStyle = createGlobalStyle`
         local("Pretendard Variable"),
         url("../../public/fonts/PretendardVariable.woff2") format("woff2-variations");
     }
-
     html,
     body {
-    font-family: Pretendard;
+    height: 100%;
     padding: 0;
     margin: 0px auto;
+    font-family: Pretendard;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
@@ -42,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     *:after {
     font-family: Pretendard;
     box-sizing: border-box;
+    color: ${({ theme }) => theme.color.text1};
     }
     :focus {
         outline: none;
