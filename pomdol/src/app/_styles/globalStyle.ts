@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     padding: 0;
     margin: 0px auto;
+    background-color: ${({ theme }) => theme.color.bg1};
     font-family: Pretendard;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
