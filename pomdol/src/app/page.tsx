@@ -1,7 +1,7 @@
 'use client';
 
-import { GlobalStyle } from '@/styles/globalStyle';
-import { darkTheme } from '@/styles/theme';
+import { GlobalStyle } from './_styles/globalStyle';
+import { darkTheme } from './_styles/theme';
 import { ThemeProvider, styled } from 'styled-components';
 
 const Main = styled.main`
