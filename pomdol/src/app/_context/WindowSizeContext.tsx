@@ -26,14 +26,16 @@ const getDeviceType = (width: number): Device => {
   return 'desktop';
 };
 
-export const WindowSizeProvider = ({ children }: { children: React.ReactNode }) => {
+export const WindowSizeProvider = ({ children }: { children: ReactNode }) => {
+  const [isClient, setIsClient] = useState(false);
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
-    device: typeof window !== 'undefined' ? getDeviceType(window.innerWidth) : 'desktop',
+    width: 0,
+    height: 0,
+    device: 'desktop',
   });
 
   useEffect(() => {
+    setIsClient(true);
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
@@ -42,12 +44,17 @@ export const WindowSizeProvider = ({ children }: { children: React.ReactNode }) 
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    if (isClient) {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+    }
 
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => {
+      if (isClient) {
+        window.removeEventListener('resize', handleResize);
+      }
+    };
+  }, [isClient]);
 
   return <WindowSizeContext.Provider value={windowSize}>{children}</WindowSizeContext.Provider>;
 };

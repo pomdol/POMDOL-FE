@@ -27,6 +27,9 @@ export const GlobalStyle = createGlobalStyle`
     -ms-use-select: none;
     user-select: none;
     }
+    body {
+        padding-top: 44px;
+    }
     a {
     color: inherit;
     text-decoration: none;
