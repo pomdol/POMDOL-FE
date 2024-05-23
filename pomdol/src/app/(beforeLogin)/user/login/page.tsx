@@ -1,5 +1,5 @@
 'use client';
 
-export default function Scheduler() {
+export default function UserLogin() {
   return <div></div>;
 }

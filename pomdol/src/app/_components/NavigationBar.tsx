@@ -20,18 +20,18 @@ export default function NavigationBar() {
           <Menu>
             <Link href="/">홈</Link>
             <Link href="/scheduler">스케줄러</Link>
-            <Link href="/">그룹</Link>
+            <Link href="/group">그룹</Link>
           </Menu>
         )}
       </LeftNav>
       <Menu>
         {device === 'mobile' ? null : (
           <>
-            <Link href="/">설정</Link>
-            <Link href="/">통계</Link>
+            <Link href="/setting">설정</Link>
+            <Link href="/report/day">통계</Link>
           </>
         )}
-        <Link href="/">로그인</Link>
+        <Link href="/user/login">로그인</Link>
       </Menu>
     </Nav>
   );
